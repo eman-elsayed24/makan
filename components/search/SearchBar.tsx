@@ -4,15 +4,15 @@ import { MapPin, Calendar, Check } from "lucide-react";
 
 export default function SearchBar() {
   return (
-    <div className="w-full max-w-[850px] bg-surface-beige rounded-2xl px-4 py-4">
-      <div className="flex items-center gap-2.5">
+    <div className="w-full bg-surface-beige rounded-xl lg:rounded-2xl p-4 lg:px-5 lg:py-4">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
         <div className="flex-1 bg-white rounded-lg px-3 py-2.5 flex items-center gap-2">
-          <MapPin size={14} className="text-text-secondary" />
+          <MapPin size={18} className="text-text-secondary shrink-0" />
           <div className="flex flex-col flex-1 min-w-0">
-            <span className="text-caption text-text-secondary leading-tight">
+            <span className="text-[10px] text-text-secondary leading-tight">
               الموقع
             </span>
-            <span className="text-sm text-primary-charcoal leading-tight">
+            <span className="text-sm text-primary-charcoal leading-tight truncate">
               مثال: الرياض
             </span>
           </div>
@@ -20,22 +20,22 @@ export default function SearchBar() {
 
         <div className="flex-1 bg-white rounded-lg px-3 py-2.5 flex items-center gap-2">
           <div className="flex flex-col flex-1 min-w-0">
-            <span className="text-caption text-text-secondary leading-tight">
+            <span className="text-[10px] text-text-secondary leading-tight">
               نوع المساحة
             </span>
-            <span className="text-sm text-primary-charcoal leading-tight">
+            <span className="text-sm text-primary-charcoal leading-tight truncate">
               مكتب خاص
             </span>
           </div>
         </div>
 
         <div className="flex-1 bg-white rounded-lg px-3 py-2.5 flex items-center gap-2">
-          <Calendar size={14} className="text-text-secondary" />
+          <Calendar size={18} className="text-text-secondary shrink-0" />
           <div className="flex flex-col flex-1 min-w-0">
-            <span className="text-caption text-text-secondary leading-tight">
+            <span className="text-[10px] text-text-secondary leading-tight">
               التاريخ
             </span>
-            <span className="text-sm text-primary-charcoal leading-tight">
+            <span className="text-sm text-primary-charcoal leading-tight truncate">
               اختر التاريخ
             </span>
           </div>
@@ -47,8 +47,10 @@ export default function SearchBar() {
       </div>
 
       <div className="mt-3 flex items-center gap-2 text-text-secondary">
-        <Check size={14} className="text-primary-olive" />
-        <span className="text-xs">الرياض، المملكة العربية السعودية</span>
+        <Check size={14} className="text-primary-olive shrink-0" />
+        <span className="text-xs truncate">
+          الرياض، المملكة العربية السعودية
+        </span>
       </div>
     </div>
   );
