@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useFavoritesStore } from "@/lib/store/useFavoritesStore";
 
 interface Workspace {
   id: number;
@@ -118,7 +119,11 @@ export default function FeaturedSpaces() {
 }
 
 function WorkspaceCard({ workspace }: { workspace: Workspace }) {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const favorites = useFavoritesStore((state) => state.favorites);
+  const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
+  const hydrated = useFavoritesStore((state) => state.hydrated);
+
+  const isFavorite = hydrated && favorites.includes(workspace.id);
 
   return (
     <div className="bg-white border border-border rounded-2xl overflow-hidden flex flex-col">
@@ -131,16 +136,20 @@ function WorkspaceCard({ workspace }: { workspace: Workspace }) {
           className="object-cover"
         />
         <button
-          onClick={() => setIsFavorite(!isFavorite)}
-          className="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors"
+          onClick={() => toggleFavorite(workspace.id)}
+          className="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all hover:scale-110"
           aria-label={isFavorite ? "إزالة من المفضلة" : "إضافة للمفضلة"}
         >
           <Image
-            src="/images/heart-off.svg"
+            src={
+              isFavorite
+                ? "/images/heart-filled.svg"
+                : "/images/heart-outline.svg"
+            }
             alt=""
             width={16}
             height={16}
-            className={isFavorite ? "opacity-100" : "opacity-60"}
+            className="transition-transform"
           />
         </button>
       </div>
