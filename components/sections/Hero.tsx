@@ -13,6 +13,7 @@ export default function Hero() {
                 alt="MAKAN workspace"
                 fill
                 className="object-cover"
+                draggable="false"
                 priority
               />
             </div>

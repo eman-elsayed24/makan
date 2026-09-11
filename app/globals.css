@@ -22,3 +22,8 @@ body {
   text-align: right;
   -webkit-font-smoothing: antialiased;
 }
+
+/* Custom animation utilities */
+.scale-97 {
+  transform: scale(0.97);
+}
