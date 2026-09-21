@@ -2,12 +2,14 @@ export default function Button({
   children,
   variant = "primary",
   size = "md",
+  type = "button",
   onClick,
   className = "",
 }: {
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "dark";
   size?: "sm" | "md" | "lg";
+  type?: "button" | "submit" | "reset";
   onClick?: () => void;
   className?: string;
 }) {
@@ -27,6 +29,7 @@ export default function Button({
 
   return (
     <button
+      type={type}
       onClick={onClick}
       className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
     >
