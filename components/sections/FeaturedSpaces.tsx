@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useFavoritesStore } from "@/lib/store/useFavoritesStore";
+import Button from "../ui/Button";
 
 interface Workspace {
   id: number;
@@ -189,9 +190,9 @@ function WorkspaceCard({ workspace }: { workspace: Workspace }) {
             </span>
             <span className="text-[11px] text-muted-foreground">/ ساعة</span>
           </div>
-          <button className="bg-secondary text-secondary-foreground text-xs px-3.5 py-1.5 rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors">
+          <Button variant="dark" size="sm">
             احجز الآن
-          </button>
+          </Button>
         </div>
       </div>
     </div>

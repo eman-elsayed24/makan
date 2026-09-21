@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useFavoritesStore } from "@/lib/store/useFavoritesStore";
 import { Heart } from "lucide-react";
 import Link from "next/link";
+import Button from "@/components/ui/Button";
 
 // نفس الـ data (في المستقبل هتيجي من API)
 const allWorkspaces = [
@@ -190,9 +191,9 @@ function WorkspaceCard({
             </span>
             <span className="text-[11px] text-muted-foreground">/ ساعة</span>
           </div>
-          <button className="bg-secondary text-secondary-foreground text-xs px-3.5 py-1.5 rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors">
+          <Button variant="dark" size="sm">
             احجز الآن
-          </button>
+          </Button>
         </div>
       </div>
     </div>
