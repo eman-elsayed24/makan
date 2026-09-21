@@ -7,8 +7,8 @@ export default function Badge({
 }) {
   const styles =
     variant === "rating"
-      ? "bg-white text-primary-charcoal shadow-sm"
-      : "bg-primary-olive text-white";
+      ? "bg-card text-foreground shadow-sm"
+      : "bg-primary text-primary-foreground";
 
   return (
     <div

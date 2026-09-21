@@ -64,15 +64,15 @@ export default function FeaturedSpaces() {
   };
 
   return (
-    <section className="bg-background-ivory">
+    <section className="bg-background">
       <div className="max-w-360 mx-auto px-4 sm:px-8 lg:px-20 py-12 sm:py-14">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="text-right space-y-1">
-            <h2 className="text-2xl font-bold text-primary-charcoal">
+            <h2 className="text-2xl font-bold text-foreground">
               استكشف المساحات المميزة
             </h2>
-            <p className="text-[13px] text-text-secondary">
+            <p className="text-[13px] text-muted-foreground">
               مساحات عمل مختارة لتناسب مختلف احتياجاتك.
             </p>
           </div>
@@ -81,7 +81,7 @@ export default function FeaturedSpaces() {
             <button
               onClick={handleNext}
               disabled={currentIndex >= workspaces.length - 4}
-              className="w-9 h-9 bg-white border border-border rounded-full flex items-center justify-center hover:bg-surface-beige transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-9 h-9 bg-card border border-border rounded-full flex items-center justify-center hover:bg-muted transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="التالي"
             >
               <Image
@@ -94,7 +94,7 @@ export default function FeaturedSpaces() {
             <button
               onClick={handlePrev}
               disabled={currentIndex === 0}
-              className="w-9 h-9 bg-white border border-border rounded-full flex items-center justify-center hover:bg-surface-beige transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-9 h-9 bg-card border border-border rounded-full flex items-center justify-center hover:bg-muted transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="السابق"
             >
               <Image
@@ -126,7 +126,7 @@ function WorkspaceCard({ workspace }: { workspace: Workspace }) {
   const isFavorite = hydrated && favorites.includes(workspace.id);
 
   return (
-    <div className="bg-white border border-border rounded-2xl overflow-hidden flex flex-col">
+    <div className="bg-card border border-border rounded-2xl overflow-hidden flex flex-col">
       {/* Image */}
       <div className="relative h-45 w-full overflow-hidden">
         <Image
@@ -137,7 +137,7 @@ function WorkspaceCard({ workspace }: { workspace: Workspace }) {
         />
         <button
           onClick={() => toggleFavorite(workspace.id)}
-          className="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all hover:scale-110"
+          className="absolute top-3 right-3 w-8 h-8 bg-card/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-card transition-all hover:scale-110"
           aria-label={isFavorite ? "إزالة من المفضلة" : "إضافة للمفضلة"}
         >
           <Image
@@ -158,12 +158,12 @@ function WorkspaceCard({ workspace }: { workspace: Workspace }) {
       <div className="p-4 flex flex-col gap-2.5">
         {/* Title & Rating */}
         <div className="flex items-center justify-between gap-2">
-          <h3 className="text-[15px] font-medium text-primary-charcoal text-right flex-1 truncate">
+          <h3 className="text-[15px] font-medium text-foreground text-right flex-1 truncate">
             {workspace.name}
           </h3>
           <div className="flex items-center gap-0.75 shrink-0">
             <Image src="/images/star.svg" alt="" width={12} height={12} />
-            <p className="text-xs font-bold text-primary-charcoal">
+            <p className="text-xs font-bold text-foreground">
               {workspace.rating}
             </p>
           </div>
@@ -171,7 +171,7 @@ function WorkspaceCard({ workspace }: { workspace: Workspace }) {
 
         {/* Location */}
         <div className="flex items-center justify-end gap-1">
-          <p className="text-xs text-text-secondary text-right">
+          <p className="text-xs text-muted-foreground text-right">
             {workspace.location}
           </p>
           <Image src="/images/map-pin.svg" alt="" width={12} height={12} />
@@ -183,13 +183,13 @@ function WorkspaceCard({ workspace }: { workspace: Workspace }) {
         {/* Price & Button */}
         <div className="flex items-center justify-between">
           <div className="flex items-baseline gap-0.75 text-right">
-            <span className="text-xs font-bold text-primary-charcoal">ر.س</span>
-            <span className="text-base font-medium text-primary-olive">
+            <span className="text-xs font-bold text-foreground">ر.س</span>
+            <span className="text-base font-medium text-primary">
               {workspace.pricePerHour}
             </span>
-            <span className="text-[11px] text-text-secondary">/ ساعة</span>
+            <span className="text-[11px] text-muted-foreground">/ ساعة</span>
           </div>
-          <button className="bg-primary-charcoal text-white text-xs px-3.5 py-1.5 rounded-lg hover:bg-primary-olive transition-colors">
+          <button className="bg-secondary text-secondary-foreground text-xs px-3.5 py-1.5 rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors">
             احجز الآن
           </button>
         </div>

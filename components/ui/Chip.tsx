@@ -8,8 +8,8 @@ export default function Chip({
   onClick?: () => void;
 }) {
   const styles = active
-    ? "bg-primary-olive text-white border-primary-olive"
-    : "bg-white text-primary-charcoal border-border hover:border-primary-olive hover:text-primary-olive";
+    ? "bg-primary text-primary-foreground border-primary"
+    : "bg-card text-foreground border-border hover:border-primary hover:text-primary";
 
   return (
     <button

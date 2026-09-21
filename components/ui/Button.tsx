@@ -13,8 +13,8 @@ export default function Button({
     "px-6 py-3 rounded-[10px] text-sm font-bold transition-opacity hover:opacity-90";
 
   const variantStyles = {
-    primary: "bg-primary-olive text-white",
-    secondary: "bg-primary-olive text-white",
+    primary: "bg-primary text-primary-foreground",
+    secondary: "bg-primary text-primary-foreground",
   };
 
   return (

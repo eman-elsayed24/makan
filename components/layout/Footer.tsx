@@ -27,7 +27,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-primary-charcoal">
+    <footer className="bg-secondary">
       <div className="max-w-360 mx-auto px-4 sm:px-8 lg:px-20 pt-16 pb-10">
         {/* Top Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 mb-12">
@@ -35,12 +35,12 @@ export default function Footer() {
           <div className="lg:col-span-2 order-1 lg:order-1 flex flex-col gap-4 items-end text-right">
             <div className="flex items-center gap-2">
               <div className="flex flex-col items-end gap-px">
-                <h2 className="text-xl font-bold text-background-ivory">
+                <h2 className="text-xl font-bold text-secondary-foreground">
                   مكان
                 </h2>
-                <p className="text-[9px] text-primary-olive">MAKAN</p>
+                <p className="text-[9px] text-primary">MAKAN</p>
               </div>
-              <div className="w-8.5 h-8.5 border border-text-secondary rounded-[10px] flex items-center justify-center">
+              <div className="w-8.5 h-8.5 border border-muted-foreground rounded-[10px] flex items-center justify-center">
                 <Image
                   src="/images/circle-x.svg"
                   alt=""
@@ -49,7 +49,7 @@ export default function Footer() {
                 />
               </div>
             </div>
-            <p className="text-[13px] leading-[1.7] text-background-ivory max-w-75">
+            <p className="text-[13px] leading-[1.7] text-secondary-foreground max-w-75">
               مكان هي المنصة الرائدة في المملكة العربية السعودية لحجز المساحات
               المشتركة والمكاتب الذكية التي تلهمك للإنتاج والعمل بمرونة تامة.
             </p>
@@ -57,14 +57,12 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="flex flex-col gap-3.5 items-end text-right order-2 lg:order-2">
-            <h3 className="text-sm font-bold text-surface-beige">
-              روابط سريعة
-            </h3>
+            <h3 className="text-sm font-bold text-muted">روابط سريعة</h3>
             {quickLinks.map((link, index) => (
               <Link
                 key={index}
                 href={link.href}
-                className="text-[13px] text-background-ivory hover:text-primary-olive transition-colors"
+                className="text-[13px] text-secondary-foreground hover:text-primary transition-colors"
               >
                 {link.label}
               </Link>
@@ -73,12 +71,12 @@ export default function Footer() {
 
           {/* Company Links */}
           <div className="flex flex-col gap-3.5 items-end text-right order-3 lg:order-3">
-            <h3 className="text-sm font-bold text-surface-beige">الشركة</h3>
+            <h3 className="text-sm font-bold text-muted">الشركة</h3>
             {companyLinks.map((link, index) => (
               <Link
                 key={index}
                 href={link.href}
-                className="text-[13px] text-background-ivory hover:text-primary-olive transition-colors"
+                className="text-[13px] text-secondary-foreground hover:text-primary transition-colors"
               >
                 {link.label}
               </Link>
@@ -87,12 +85,12 @@ export default function Footer() {
 
           {/* Help Links */}
           <div className="flex flex-col gap-3.5 items-end text-right order-4 lg:order-4">
-            <h3 className="text-sm font-bold text-surface-beige">مساعدة</h3>
+            <h3 className="text-sm font-bold text-muted">مساعدة</h3>
             {helpLinks.map((link, index) => (
               <Link
                 key={index}
                 href={link.href}
-                className="text-[13px] text-background-ivory hover:text-primary-olive transition-colors"
+                className="text-[13px] text-secondary-foreground hover:text-primary transition-colors"
               >
                 {link.label}
               </Link>
@@ -101,15 +99,13 @@ export default function Footer() {
 
           {/* App Downloads - */}
           <div className="hidden lg:flex flex-col gap-4 items-start text-right order-5 lg:order-5">
-            <h3 className="text-sm font-bold text-surface-beige">
-              حمل التطبيق
-            </h3>
+            <h3 className="text-sm font-bold text-muted">حمل التطبيق</h3>
             <div className="flex gap-2">
-              <div className="bg-white px-3.5 py-2 rounded-lg">
-                <p className="text-xs text-primary-charcoal">App Store</p>
+              <div className="bg-card px-3.5 py-2 rounded-lg">
+                <p className="text-xs text-foreground">App Store</p>
               </div>
-              <div className="bg-white px-3.5 py-2 rounded-lg">
-                <p className="text-xs text-primary-charcoal">Google Play</p>
+              <div className="bg-card px-3.5 py-2 rounded-lg">
+                <p className="text-xs text-foreground">Google Play</p>
               </div>
             </div>
           </div>
@@ -117,23 +113,23 @@ export default function Footer() {
 
         {/* App Downloads - Mobile First */}
         <div className="flex flex-col gap-4 items-end mb-12 lg:hidden">
-          <h3 className="text-sm font-bold text-surface-beige">حمل التطبيق</h3>
+          <h3 className="text-sm font-bold text-muted">حمل التطبيق</h3>
           <div className="flex gap-2">
-            <div className="bg-white px-3.5 py-2 rounded-lg">
-              <p className="text-xs text-primary-charcoal">Google Play</p>
+            <div className="bg-card px-3.5 py-2 rounded-lg">
+              <p className="text-xs text-foreground">Google Play</p>
             </div>
-            <div className="bg-white px-3.5 py-2 rounded-lg">
-              <p className="text-xs text-primary-charcoal">App Store</p>
+            <div className="bg-card px-3.5 py-2 rounded-lg">
+              <p className="text-xs text-foreground">App Store</p>
             </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-text-secondary/30 mb-12" />
+        <div className="w-full h-px bg-muted-foreground/30 mb-12" />
 
         {/* Bottom Section */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-          <p className="text-[13px] text-text-secondary text-center sm:text-right order-2 sm:order-1">
+          <p className="text-[13px] text-muted-foreground text-center sm:text-right order-2 sm:order-1">
             © 2026 مكان (MAKAN). صنع بكل حب في السعودية 🇸🇦
           </p>
 

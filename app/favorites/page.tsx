@@ -54,13 +54,13 @@ export default function FavoritesPage() {
 
   if (!hydrated) {
     return (
-      <div className="min-h-screen bg-background-ivory">
+      <div className="min-h-screen bg-background">
         <Navbar />
         <main className="pt-22 pb-20">
           <div className="max-w-360 mx-auto px-4 sm:px-8 lg:px-20">
             <div className="animate-pulse">
-              <div className="h-10 bg-surface-beige rounded w-64 mb-2"></div>
-              <div className="h-4 bg-surface-beige rounded w-48"></div>
+              <div className="h-10 bg-muted rounded w-64 mb-2"></div>
+              <div className="h-4 bg-muted rounded w-48"></div>
             </div>
           </div>
         </main>
@@ -69,16 +69,16 @@ export default function FavoritesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background-ivory">
+    <div className="min-h-screen bg-background">
       <Navbar />
 
       <main className="pt-22 pb-20">
         <div className="max-w-360 mx-auto px-4 sm:px-8 lg:px-20">
           <div className="mb-8">
-            <h1 className="text-3xl sm:text-4xl font-bold text-primary-charcoal mb-2">
+            <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-2">
               مساحاتي المفضلة
             </h1>
-            <p className="text-text-secondary">
+            <p className="text-muted-foreground">
               {favoriteWorkspaces.length > 0
                 ? `لديك ${favoriteWorkspaces.length} مساحة في المفضلة`
                 : "لا توجد مساحات في المفضلة"}
@@ -87,18 +87,18 @@ export default function FavoritesPage() {
 
           {favoriteWorkspaces.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20 text-center">
-              <div className="w-20 h-20 bg-surface-beige rounded-full flex items-center justify-center mb-4">
-                <Heart size={40} className="text-text-secondary" />
+              <div className="w-20 h-20 bg-muted rounded-full flex items-center justify-center mb-4">
+                <Heart size={40} className="text-muted-foreground" />
               </div>
-              <h2 className="text-2xl font-bold text-primary-charcoal mb-2">
+              <h2 className="text-2xl font-bold text-foreground mb-2">
                 لا توجد مساحات مفضلة
               </h2>
-              <p className="text-text-secondary mb-6 max-w-md">
+              <p className="text-muted-foreground mb-6 max-w-md">
                 ابدأ في استكشاف المساحات وأضف المفضلة لديك لتجدها هنا بسهولة
               </p>
               <Link
                 href="/"
-                className="bg-primary-charcoal text-white px-6 py-3 rounded-lg hover:bg-primary-olive transition-colors"
+                className="bg-secondary text-secondary-foreground px-6 py-3 rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 استكشف المساحات
               </Link>
@@ -133,7 +133,7 @@ function WorkspaceCard({
   onToggleFavorite,
 }: WorkspaceCardProps) {
   return (
-    <div className="bg-white border border-border rounded-2xl overflow-hidden flex flex-col">
+    <div className="bg-card border border-border rounded-2xl overflow-hidden flex flex-col">
       <div className="relative h-45 w-full overflow-hidden">
         <Image
           src={workspace.image}
@@ -143,7 +143,7 @@ function WorkspaceCard({
         />
         <button
           onClick={onToggleFavorite}
-          className="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all hover:scale-110"
+          className="absolute top-3 right-3 w-8 h-8 bg-card/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-card transition-all hover:scale-110"
           aria-label={isFavorite ? "إزالة من المفضلة" : "إضافة للمفضلة"}
         >
           <Image
@@ -162,19 +162,19 @@ function WorkspaceCard({
 
       <div className="p-4 flex flex-col gap-2.5">
         <div className="flex items-center justify-between gap-2">
-          <h3 className="text-[15px] font-medium text-primary-charcoal text-right flex-1 truncate">
+          <h3 className="text-[15px] font-medium text-foreground text-right flex-1 truncate">
             {workspace.name}
           </h3>
           <div className="flex items-center gap-0.75 shrink-0">
             <Image src="/images/star.svg" alt="" width={12} height={12} />
-            <p className="text-xs font-bold text-primary-charcoal">
+            <p className="text-xs font-bold text-foreground">
               {workspace.rating}
             </p>
           </div>
         </div>
 
         <div className="flex items-center justify-end gap-1">
-          <p className="text-xs text-text-secondary text-right">
+          <p className="text-xs text-muted-foreground text-right">
             {workspace.location}
           </p>
           <Image src="/images/map-pin.svg" alt="" width={12} height={12} />
@@ -184,13 +184,13 @@ function WorkspaceCard({
 
         <div className="flex items-center justify-between">
           <div className="flex items-baseline gap-0.75 text-right">
-            <span className="text-xs font-bold text-primary-charcoal">ر.س</span>
-            <span className="text-base font-medium text-primary-olive">
+            <span className="text-xs font-bold text-foreground">ر.س</span>
+            <span className="text-base font-medium text-primary">
               {workspace.pricePerHour}
             </span>
-            <span className="text-[11px] text-text-secondary">/ ساعة</span>
+            <span className="text-[11px] text-muted-foreground">/ ساعة</span>
           </div>
-          <button className="bg-primary-charcoal text-white text-xs px-3.5 py-1.5 rounded-lg hover:bg-primary-olive transition-colors">
+          <button className="bg-secondary text-secondary-foreground text-xs px-3.5 py-1.5 rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors">
             احجز الآن
           </button>
         </div>
