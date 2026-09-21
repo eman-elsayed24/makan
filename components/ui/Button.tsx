@@ -14,7 +14,7 @@ export default function Button({
 
   const variantStyles = {
     primary: "bg-primary-olive text-white",
-    secondary: "bg-surface-beige text-primary-charcoal",
+    secondary: "bg-primary-olive text-white",
   };
 
   return (

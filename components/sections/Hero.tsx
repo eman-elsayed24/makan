@@ -3,15 +3,16 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative pt-[68px] bg-background-ivory">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-20 py-8 sm:py-12 lg:py-20">
+    <section className="relative pt-17 bg-background-ivory">
+      <div className="max-w-360 mx-auto px-4 sm:px-8 lg:px-20 py-8 sm:py-12 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="order-2 lg:order-2">
-            <div className="relative w-full h-[280px] sm:h-[340px] lg:h-[380px] rounded-2xl lg:rounded-3xl overflow-hidden">
+            <div className="relative w-full h-70 sm:h-85 lg:h-95 rounded-2xl lg:rounded-3xl overflow-hidden">
               <Image
                 src="/images/hero-image.png"
                 alt="MAKAN workspace"
                 fill
+               
                 className="object-cover"
                 draggable="false"
                 priority

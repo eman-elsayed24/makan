@@ -1,14 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-charcoal: #1f2523;
-  --color-primary-olive: #6f7658;
-  --color-background-ivory: #f8f6f1;
-  --color-surface-beige: #e9e1d5;
-  --color-secondary-sand: #d8c8b5;
-  --color-white: #ffffff;
-  --color-text-secondary: #777a76;
+  /* Primary Colors */
+  --color-primary: #6f7658;
+  --color-primary-foreground: #ffffff;
+
+  /* Secondary Colors */
+  --color-secondary: #1f2523;
+  --color-secondary-foreground: #f8f6f1;
+
+  /* Muted Colors */
+  --color-muted: #e9e1d5;
+  --color-muted-foreground: #777a76;
+
+  /* Accent Colors */
+  --color-accent: #d8c8b5;
+  --color-accent-foreground: #1f2523;
+
+  /* Background & Foreground */
+  --color-background: #f8f6f1;
+  --color-foreground: #1f2523;
+
+  /* Card */
+  --color-card: #ffffff;
+  --color-card-foreground: #1f2523;
+
+  /* Border & Input */
   --color-border: #e2ded5;
+  --color-input: #e2ded5;
+
+  /* Destructive */
+  --color-destructive: #e63946;
+  --color-destructive-foreground: #ffffff;
 
   --font-sans:
     var(--font-tajawal), -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -17,13 +40,12 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: #f8f6f1;
-  color: #1f2523;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
   text-align: right;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Custom animation utilities */
 .scale-97 {
   transform: scale(0.97);
 }
