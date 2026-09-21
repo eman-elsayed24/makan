@@ -29,9 +29,7 @@ export default function Footer() {
   return (
     <footer className="bg-secondary">
       <div className="max-w-360 mx-auto px-4 sm:px-8 lg:px-20 pt-16 pb-10">
-        {/* Top Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 mb-12">
-          {/* Brand Column */}
           <div className="lg:col-span-2 order-1 lg:order-1 flex flex-col gap-4 items-end text-right">
             <div className="flex items-center gap-2">
               <div className="flex flex-col items-end gap-px">
@@ -55,7 +53,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
           <div className="flex flex-col gap-3.5 items-end text-right order-2 lg:order-2">
             <h3 className="text-sm font-bold text-muted">روابط سريعة</h3>
             {quickLinks.map((link, index) => (
@@ -69,7 +66,6 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Company Links */}
           <div className="flex flex-col gap-3.5 items-end text-right order-3 lg:order-3">
             <h3 className="text-sm font-bold text-muted">الشركة</h3>
             {companyLinks.map((link, index) => (
@@ -83,7 +79,6 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Help Links */}
           <div className="flex flex-col gap-3.5 items-end text-right order-4 lg:order-4">
             <h3 className="text-sm font-bold text-muted">مساعدة</h3>
             {helpLinks.map((link, index) => (
@@ -97,7 +92,6 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* App Downloads - */}
           <div className="hidden lg:flex flex-col gap-4 items-start text-right order-5 lg:order-5">
             <h3 className="text-sm font-bold text-muted">حمل التطبيق</h3>
             <div className="flex gap-2">
@@ -111,7 +105,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* App Downloads - Mobile First */}
         <div className="flex flex-col gap-4 items-end mb-12 lg:hidden">
           <h3 className="text-sm font-bold text-muted">حمل التطبيق</h3>
           <div className="flex gap-2">
@@ -124,16 +117,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="w-full h-px bg-muted-foreground/30 mb-12" />
 
-        {/* Bottom Section */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           <p className="text-[13px] text-muted-foreground text-center sm:text-right order-2 sm:order-1">
             © 2026 مكان (MAKAN). صنع بكل حب في السعودية 🇸🇦
           </p>
 
-          {/* Social Links */}
           <div className="flex items-center gap-4 order-1 sm:order-2">
             {socialLinks.map((social, index) => (
               <Link

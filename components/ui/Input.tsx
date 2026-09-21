@@ -3,11 +3,15 @@ export default function Input({
   placeholder,
   type = "text",
   error,
+  value,
+  onChange,
 }: {
   label?: string;
   placeholder?: string;
   type?: string;
   error?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
   return (
     <div className="w-full">
@@ -17,6 +21,8 @@ export default function Input({
       <input
         type={type}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
         className={`w-full h-14 px-4 text-base text-foreground placeholder:text-muted-foreground bg-card border rounded-lg outline-none transition-all ${
           error
             ? "border-destructive focus:border-destructive focus:ring-2 focus:ring-destructive/20"

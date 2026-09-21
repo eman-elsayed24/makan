@@ -7,7 +7,6 @@ import { Heart } from "lucide-react";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 
-// نفس الـ data (في المستقبل هتيجي من API)
 const allWorkspaces = [
   {
     id: 1,

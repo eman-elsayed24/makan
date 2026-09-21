@@ -67,7 +67,6 @@ export default function FeaturedSpaces() {
   return (
     <section className="bg-background">
       <div className="max-w-360 mx-auto px-4 sm:px-8 lg:px-20 py-12 sm:py-14">
-        {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="text-right space-y-1">
             <h2 className="text-2xl font-bold text-foreground">
@@ -108,7 +107,6 @@ export default function FeaturedSpaces() {
           </div>
         </div>
 
-        {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {workspaces.slice(currentIndex, currentIndex + 4).map((workspace) => (
             <WorkspaceCard key={workspace.id} workspace={workspace} />
@@ -128,7 +126,6 @@ function WorkspaceCard({ workspace }: { workspace: Workspace }) {
 
   return (
     <div className="bg-card border border-border rounded-2xl overflow-hidden flex flex-col">
-      {/* Image */}
       <div className="relative h-45 w-full overflow-hidden">
         <Image
           src={workspace.image}
@@ -155,9 +152,7 @@ function WorkspaceCard({ workspace }: { workspace: Workspace }) {
         </button>
       </div>
 
-      {/* Content */}
       <div className="p-4 flex flex-col gap-2.5">
-        {/* Title & Rating */}
         <div className="flex items-center justify-between gap-2">
           <h3 className="text-[15px] font-medium text-foreground text-right flex-1 truncate">
             {workspace.name}
@@ -170,7 +165,6 @@ function WorkspaceCard({ workspace }: { workspace: Workspace }) {
           </div>
         </div>
 
-        {/* Location */}
         <div className="flex items-center justify-end gap-1">
           <p className="text-xs text-muted-foreground text-right">
             {workspace.location}
@@ -178,10 +172,8 @@ function WorkspaceCard({ workspace }: { workspace: Workspace }) {
           <Image src="/images/map-pin.svg" alt="" width={12} height={12} />
         </div>
 
-        {/* Divider */}
         <div className="w-full h-px bg-border" />
 
-        {/* Price & Button */}
         <div className="flex items-center justify-between">
           <div className="flex items-baseline gap-0.75 text-right">
             <span className="text-xs font-bold text-foreground">ر.س</span>

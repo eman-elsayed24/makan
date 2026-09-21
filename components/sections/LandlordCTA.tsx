@@ -6,7 +6,6 @@ export default function LandlordCTA() {
     <section className="bg-secondary">
       <div className="max-w-360 mx-auto px-4 sm:px-8 lg:px-20 py-12 sm:py-14">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-          {/* Image */}
           <div className="w-full lg:w-100 h-65 relative rounded-2xl overflow-hidden shrink-0 order-2 lg:order-1">
             <Image
               src="/images/landlord-banner.png"
@@ -16,7 +15,6 @@ export default function LandlordCTA() {
             />
           </div>
 
-          {/* Content */}
           <div className="flex-1 flex flex-col items-end text-right order-1 lg:order-2">
             <div className="space-y-2.5 mb-6">
               <h2 className="text-[28px] sm:text-[32px] font-bold text-muted leading-normal">
