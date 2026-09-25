@@ -18,31 +18,34 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center px-20 py-16">
-      <div className="w-full max-w-360 flex items-center gap-12">
-        <div className="relative w-140 h-170 rounded-3xl overflow-hidden shrink-0">
-          <Image
-            src="/images/login-decor.png"
-            alt=""
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-secondary/20" />
-          <div className="absolute bottom-0 left-0 right-0 p-10 text-right">
-            <h2 className="text-[28px] font-extrabold text-white mb-3">
-              انضم إلى مجتمع مكان
-            </h2>
-            <p className="text-[15px] text-background leading-relaxed">
-              بيئة العمل الأمثل لتعزيز إنتاجيتك وإبداعك اليومي في مختلف مناطق
-              المملكة.
-            </p>
+    <div className="min-h-screen bg-background flex items-center justify-center px-4 sm:px-8 lg:px-20 py-8 sm:py-12 lg:py-16">
+      <div className="w-full max-w-360 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+        <div className="hidden lg:block relative lg:w-140 lg:h-170 shrink-0">
+          <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-3xl" />
+          <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(111,118,88,0.3)] border-2 border-primary/10">
+            <Image
+              src="/images/login-decor.png"
+              alt=""
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-linear-to-b from-secondary/10 via-transparent to-secondary/40" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 lg:p-10 text-right backdrop-blur-sm bg-secondary/20">
+              <h2 className="text-xl sm:text-2xl lg:text-[28px] font-extrabold text-white mb-2 sm:mb-3 drop-shadow-lg">
+                انضم إلى مجتمع مكان
+              </h2>
+              <p className="text-sm sm:text-[15px] text-background leading-relaxed drop-shadow-md">
+                بيئة العمل الأمثل لتعزيز إنتاجيتك وإبداعك اليومي في مختلف مناطق
+                المملكة.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="flex-1 bg-card border border-border rounded-3xl p-10">
-          <div className="mb-7">
-            <h1 className="text-[32px] font-extrabold text-foreground mb-2 text-right">
+        <div className="w-full bg-card border border-border rounded-3xl p-6 sm:p-8 lg:p-10 shadow-lg">
+          <div className="mb-6 lg:mb-7">
+            <h1 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-foreground mb-2 text-right">
               تسجيل الدخول
             </h1>
             <p className="text-sm text-muted-foreground text-right">
@@ -50,12 +53,12 @@ export default function LoginPage() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
             <div className="space-y-1.5">
-              <label className="block text-[13px] font-bold text-foreground text-right">
+              <label className="block text-xs sm:text-[13px] font-bold text-foreground text-right">
                 البريد الإلكتروني أو رقم الجوال
               </label>
-              <div className="bg-background border border-border rounded-xl px-4 py-3.5 flex items-center gap-3">
+              <div className="bg-background border border-border rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 flex items-center gap-3">
                 <Image
                   src="/images/user-icon.svg"
                   alt=""
@@ -72,10 +75,10 @@ export default function LoginPage() {
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-[13px] font-bold text-foreground text-right">
+              <label className="block text-xs sm:text-[13px] font-bold text-foreground text-right">
                 كلمة المرور
               </label>
-              <div className="bg-card border-[1.5px] border-border rounded-xl px-4 py-3.5 flex items-center gap-3">
+              <div className="bg-card border-[1.5px] border-border rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 flex items-center gap-3">
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
@@ -95,15 +98,15 @@ export default function LoginPage() {
               )}
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
               <Link
                 href="/forgot-password"
-                className="text-[13px] font-medium text-primary hover:underline"
+                className="text-xs sm:text-[13px] font-medium text-primary hover:underline"
               >
                 نسيت كلمة المرور؟
               </Link>
               <label className="flex items-center gap-2 cursor-pointer">
-                <span className="text-[13px] text-foreground">
+                <span className="text-xs sm:text-[13px] text-foreground">
                   تذكرني على هذا الجهاز
                 </span>
                 <input
@@ -115,14 +118,16 @@ export default function LoginPage() {
               </label>
             </div>
 
-            <div className="space-y-4 pt-2">
+            <div className="space-y-3 sm:space-y-4 pt-2">
               <Button type="submit" className="w-full" size="lg">
                 تسجيل الدخول
               </Button>
 
               <div className="flex items-center gap-3">
                 <div className="flex-1 h-px bg-border" />
-                <span className="text-[13px] text-muted-foreground">أو</span>
+                <span className="text-xs sm:text-[13px] text-muted-foreground">
+                  أو
+                </span>
                 <div className="flex-1 h-px bg-border" />
               </div>
 
@@ -135,7 +140,7 @@ export default function LoginPage() {
             </div>
           </form>
 
-          <div className="mt-7 text-center">
+          <div className="mt-6 sm:mt-7 text-center">
             <p className="text-sm text-muted-foreground">
               ليس لديك حساب؟{" "}
               <Link

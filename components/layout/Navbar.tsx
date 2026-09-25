@@ -52,12 +52,13 @@ export default function Navbar() {
                 </span>
               )}
             </Link>
-            <button
+            <Link
+            href="/login"
               className="w-10 h-10 flex items-center justify-center rounded-full text-foreground hover:bg-muted transition-colors"
               aria-label="حساب المستخدم"
             >
               <UserCircle size={24} strokeWidth={1.5} />
-            </button>
+            </Link>
             <button
               className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full text-foreground hover:bg-muted transition-colors"
               aria-label="القائمة"
