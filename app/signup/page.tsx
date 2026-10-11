@@ -121,6 +121,11 @@ export default function SignupPage() {
                     <FormLabel>كلمة المرور</FormLabel>
                     <FormControl>
                       <div className="bg-background border border-border rounded-xl px-3 sm:px-4 py-3 flex items-center gap-3">
+                        <input
+                          {...field}
+                          type={showPassword ? "text" : "password"}
+                          className="flex-1 bg-transparent text-sm text-foreground text-right outline-none"
+                        />
                         <button
                           type="button"
                           onClick={() => setShowPassword(!showPassword)}
@@ -128,11 +133,6 @@ export default function SignupPage() {
                         >
                           إظهار
                         </button>
-                        <input
-                          {...field}
-                          type={showPassword ? "text" : "password"}
-                          className="flex-1 bg-transparent text-sm text-foreground text-right outline-none"
-                        />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -150,6 +150,11 @@ export default function SignupPage() {
                       <div
                         className={`${form.formState.errors.confirmPassword ? "bg-card border-destructive border-[1.5px]" : "bg-card border border-border"} rounded-xl px-3 sm:px-4 py-3 flex items-center gap-3`}
                       >
+                        <input
+                          {...field}
+                          type={showConfirmPassword ? "text" : "password"}
+                          className="flex-1 bg-transparent text-sm text-foreground text-right outline-none"
+                        />
                         <button
                           type="button"
                           onClick={() =>
@@ -159,11 +164,6 @@ export default function SignupPage() {
                         >
                           إظهار
                         </button>
-                        <input
-                          {...field}
-                          type={showConfirmPassword ? "text" : "password"}
-                          className="flex-1 bg-transparent text-sm text-foreground text-right outline-none"
-                        />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -176,16 +176,7 @@ export default function SignupPage() {
                 name="agreeToTerms"
                 render={({ field }) => (
                   <FormItem>
-                    <div className="flex items-center justify-end gap-2.5">
-                      <div className="flex items-center gap-1 text-xs sm:text-[13px]">
-                        <Link
-                          href="/terms"
-                          className="font-bold text-primary hover:underline"
-                        >
-                          الشروط والأحكام وسياسة الخصوصية
-                        </Link>
-                        <span className="text-foreground">أوافق على</span>
-                      </div>
+                    <div className="flex items-center gap-2.5">
                       <FormControl>
                         <input
                           type="checkbox"
@@ -210,6 +201,15 @@ export default function SignupPage() {
                           </span>
                         )}
                       </label>
+                      <div className="flex items-center gap-1 text-xs sm:text-[13px]">
+                        <span className="text-foreground">أوافق على</span>
+                        <Link
+                          href="/terms"
+                          className="font-bold text-primary hover:underline"
+                        >
+                          الشروط والأحكام وسياسة الخصوصية
+                        </Link>
+                      </div>
                     </div>
                     <FormMessage />
                   </FormItem>
