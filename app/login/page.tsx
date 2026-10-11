@@ -3,18 +3,33 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Button from "@/components/ui/Button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/Form";
+import { loginSchema, type LoginFormData } from "@/lib/validations/auth";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("abdullah@example.sa");
-  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(true);
-  const [error] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log({ email, password });
+  const form = useForm<LoginFormData>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      emailOrPhone: "",
+      password: "",
+      rememberMe: true,
+    },
+  });
+
+  const onSubmit = (data: LoginFormData) => {
+    console.log(data);
   };
 
   return (
@@ -53,92 +68,112 @@ export default function LoginPage() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-            <div className="space-y-1.5">
-              <label className="block text-xs sm:text-[13px] font-bold text-foreground text-right">
-                البريد الإلكتروني أو رقم الجوال
-              </label>
-              <div className="bg-background border border-border rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 flex items-center gap-3">
-                <Image
-                  src="/images/user-icon.svg"
-                  alt=""
-                  width={16}
-                  height={16}
-                />
-                <input
-                  type="text"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 bg-transparent text-sm text-foreground text-right outline-none"
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-4 sm:space-y-5"
+            >
+              <FormField
+                control={form.control}
+                name="emailOrPhone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>البريد الإلكتروني أو رقم الجوال</FormLabel>
+                    <FormControl>
+                      <div className="bg-background border border-border rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 flex items-center gap-3">
+                        <Image
+                          src="/images/user-icon.svg"
+                          alt=""
+                          width={16}
+                          height={16}
+                        />
+                        <input
+                          {...field}
+                          type="text"
+                          className="flex-1 bg-transparent text-sm text-foreground text-right outline-none"
+                        />
+                      </div>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>كلمة المرور</FormLabel>
+                    <FormControl>
+                      <div className="bg-card border-[1.5px] border-border rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 flex items-center gap-3">
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="text-xs font-bold text-muted-foreground"
+                        >
+                          إظهار
+                        </button>
+                        <input
+                          {...field}
+                          type={showPassword ? "text" : "password"}
+                          className="flex-1 bg-transparent text-sm text-foreground text-right outline-none"
+                        />
+                      </div>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
+                <Link
+                  href="/forgot-password"
+                  className="text-xs sm:text-[13px] font-medium text-primary hover:underline"
+                >
+                  نسيت كلمة المرور؟
+                </Link>
+                <FormField
+                  control={form.control}
+                  name="rememberMe"
+                  render={({ field }) => (
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <span className="text-xs sm:text-[13px] text-foreground">
+                        تذكرني على هذا الجهاز
+                      </span>
+                      <input
+                        type="checkbox"
+                        checked={field.value}
+                        onChange={field.onChange}
+                        className="w-4.5 h-4.5 rounded accent-primary"
+                      />
+                    </label>
+                  )}
                 />
               </div>
-            </div>
 
-            <div className="space-y-1.5">
-              <label className="block text-xs sm:text-[13px] font-bold text-foreground text-right">
-                كلمة المرور
-              </label>
-              <div className="bg-card border-[1.5px] border-border rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 flex items-center gap-3">
+              <div className="space-y-3 sm:space-y-4 pt-2">
+                <Button type="submit" className="w-full" size="lg">
+                  تسجيل الدخول
+                </Button>
+
+                <div className="flex items-center gap-3">
+                  <div className="flex-1 h-px bg-border" />
+                  <span className="text-xs sm:text-[13px] text-muted-foreground">
+                    أو
+                  </span>
+                  <div className="flex-1 h-px bg-border" />
+                </div>
+
                 <button
                   type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="text-xs font-bold text-muted-foreground"
+                  className="w-full bg-card border border-border rounded-xl py-3 text-sm font-bold text-foreground hover:bg-muted transition-colors"
                 >
-                  إظهار
+                  تسجيل بواسطة Google
                 </button>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="flex-1 bg-transparent text-sm text-foreground text-right outline-none"
-                />
               </div>
-              {error && (
-                <p className="text-xs text-destructive text-right">{error}</p>
-              )}
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
-              <Link
-                href="/forgot-password"
-                className="text-xs sm:text-[13px] font-medium text-primary hover:underline"
-              >
-                نسيت كلمة المرور؟
-              </Link>
-              <label className="flex items-center gap-2 cursor-pointer">
-                <span className="text-xs sm:text-[13px] text-foreground">
-                  تذكرني على هذا الجهاز
-                </span>
-                <input
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={() => setRememberMe(!rememberMe)}
-                  className="w-4.5 h-4.5 rounded accent-primary"
-                />
-              </label>
-            </div>
-
-            <div className="space-y-3 sm:space-y-4 pt-2">
-              <Button type="submit" className="w-full" size="lg">
-                تسجيل الدخول
-              </Button>
-
-              <div className="flex items-center gap-3">
-                <div className="flex-1 h-px bg-border" />
-                <span className="text-xs sm:text-[13px] text-muted-foreground">
-                  أو
-                </span>
-                <div className="flex-1 h-px bg-border" />
-              </div>
-
-              <button
-                type="button"
-                className="w-full bg-card border border-border rounded-xl py-3 text-sm font-bold text-foreground hover:bg-muted transition-colors"
-              >
-                تسجيل بواسطة Google
-              </button>
-            </div>
-          </form>
+            </form>
+          </Form>
 
           <div className="mt-6 sm:mt-7 text-center">
             <p className="text-sm text-muted-foreground">
